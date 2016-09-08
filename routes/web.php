@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 
 
+///Тест
+
 
 Route::resource('posts', 'PostController');
 
