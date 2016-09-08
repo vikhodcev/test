@@ -16,9 +16,7 @@ Route::get('/', function () {
 })->middleware('auth');
 
 
-Route::get('/404',function (){
-    App::abort(404);
-});
+
 
 Route::resource('posts', 'PostController');
 
