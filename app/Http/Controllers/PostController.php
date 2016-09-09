@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\Message;
 
 class PostController extends Controller
 {
@@ -15,7 +16,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+        $data = [
+            'title'=>'Гостевая книга',
+            'pagetitle'=>'Гостевая книга',
+            'messages'=>Message::latest()->paginate(1),
+            'count'=>  Message::count(),
+        ]; 
+        return view('post.index',$data);
     }
 
     /**
